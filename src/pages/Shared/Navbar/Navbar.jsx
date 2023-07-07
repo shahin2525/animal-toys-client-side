@@ -50,17 +50,17 @@ const Navbar = () => {
         >
           Blog
         </NavLink>
+        {user ? (
+          <button onClick={handleLogOut}>logOut</button>
+        ) : (
+          <button className="text-xl font-semibold">
+            <Link to="/login">login</Link>
+          </button>
+        )}
       </div>
 
       <div className="flex-start gap-2">
         {/* {user &&    <button>logOut</button>} */}
-        {user ? (
-          <button onClick={handleLogOut}>logOut</button>
-        ) : (
-          <button>
-            <Link to="/login">login</Link>
-          </button>
-        )}
 
         <div className="">
           {user && (
