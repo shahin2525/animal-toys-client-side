@@ -3,7 +3,8 @@ import { AuthContext } from "../../../provider/AuthProvider";
 // import { AuthContext } from "../../provider/AuthProvider";
 
 const SocialLoginButton = () => {
-  const { googleLogin, githubLogin } = useContext(AuthContext);
+  const { googleLogin } = useContext(AuthContext);
+  // , githubLogin
   const handleGoogleSignIn = () => {
     googleLogin()
       .then((result) => {
@@ -15,17 +16,17 @@ const SocialLoginButton = () => {
         console.log(message);
       });
   };
-  const handleGithubSignIn = () => {
-    githubLogin()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => {
-        const message = error.message;
-        console.log(message);
-      });
-  };
+  // const handleGithubSignIn = () => {
+  //   githubLogin()
+  //     .then((result) => {
+  //       const user = result.user;
+  //       console.log(user);
+  //     })
+  //     .catch((error) => {
+  //       const message = error.message;
+  //       console.log(message);
+  //     });
+  // };
   return (
     <div className="w-56 mx-auto">
       <div className="my-3  ">
@@ -37,7 +38,7 @@ const SocialLoginButton = () => {
           />
         </button>
       </div>
-      <div className="my-3 ">
+      {/* <div className="my-3 ">
         <button onClick={handleGithubSignIn}>
           <img
             className="h-20 w-52 rounded"
@@ -45,7 +46,7 @@ const SocialLoginButton = () => {
             alt=""
           />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

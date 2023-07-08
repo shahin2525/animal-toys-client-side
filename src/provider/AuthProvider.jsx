@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import {
-  GithubAuthProvider,
+  // GithubAuthProvider,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
@@ -8,12 +8,15 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
+
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const googleProvider = new GoogleAuthProvider();
-  const githubProvider = new GithubAuthProvider();
+  // const githubProvider = new GithubAuthProvider();
+
   const auth = getAuth(app);
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -34,10 +37,30 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
-  const githubLogin = () => {
+  const userProfileUpdate = () => {
     setLoading(true);
-    return signInWithPopup(auth, githubProvider);
+    return updateProfile(auth);
   };
+
+  //
+
+  //   import { getAuth, updateProfile } from "firebase/auth";
+  // const auth = getAuth();
+  // updateProfile(auth.currentUser, {
+  //   displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+  // }).then(() => {
+  //   // Profile updated!
+  //   // ...
+  // }).catch((error) => {
+  //   // An error occurred
+  //   // ...
+  // });
+  //
+
+  // const githubLogin = () => {
+  //   setLoading(true);
+  //   return signInWithPopup(auth, githubProvider);
+  // };
   useEffect(() => {
     const unsubsCribe = onAuthStateChanged(auth, (loggedUser) => {
       setUser(loggedUser);
@@ -46,13 +69,14 @@ const AuthProvider = ({ children }) => {
     return () => {
       return unsubsCribe();
     };
-  }, [auth]); // add new this
+  }, []); // add new this
   const authInfo = {
     createUser,
     login,
     logOut,
     googleLogin,
-    githubLogin,
+    userProfileUpdate,
+    // githubLogin,
     user,
     loading,
   };
