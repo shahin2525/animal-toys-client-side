@@ -8,7 +8,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updateProfile,
+  // updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
   // const githubProvider = new GithubAuthProvider();
 
   const auth = getAuth(app);
+  // const currentUser = auth.currentUser;
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -37,10 +38,10 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
-  const userProfileUpdate = () => {
-    setLoading(true);
-    return updateProfile(auth);
-  };
+  // const userProfileUpdate = () => {
+  //   setLoading(true);
+  //   return updateProfile(auth.currentUser);
+  // };
 
   //
 
@@ -61,6 +62,7 @@ const AuthProvider = ({ children }) => {
   //   setLoading(true);
   //   return signInWithPopup(auth, githubProvider);
   // };
+
   useEffect(() => {
     const unsubsCribe = onAuthStateChanged(auth, (loggedUser) => {
       setUser(loggedUser);
@@ -75,7 +77,7 @@ const AuthProvider = ({ children }) => {
     login,
     logOut,
     googleLogin,
-    userProfileUpdate,
+    // userProfileUpdate,
     // githubLogin,
     user,
     loading,

@@ -5,9 +5,7 @@ import { AuthContext } from "../../../provider/AuthProvider";
 
 const Navbar = () => {
   const { logOut, user } = useContext(AuthContext);
-  // console.log(user);
-
-  // setUserImage(image);
+  // userProfileUpdate,
   const handleLogOut = () => {
     logOut()
       .then()
@@ -16,6 +14,19 @@ const Navbar = () => {
         console.log(message);
       });
   };
+
+  // userProfileUpdate({
+  //   displayName: "Jane Q. User",
+  //   photoURL: "https://example.com/jane-q-user/profile.jpg",
+  // })
+  //   .then(() => {
+  //     // Profile updated!
+  //     // ...
+  //   })
+  //   .catch((error) => {
+  //     const message = error.message;
+  //     console.log(message);
+  //   });
 
   return (
     <div className="navbar bg-rose-100 flex-col md:flex-row bold">
