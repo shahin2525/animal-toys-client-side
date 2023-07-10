@@ -1,0 +1,44 @@
+[
+  {
+    "id": "001",
+    "price": 9.99,
+    "rating": 4.5,
+    "image_url": "https://i.ibb.co/vZNN5LB/istockphoto-917862628-1024x1024.jpg",
+    "name": "Bear Toy"
+  },
+  {
+    "id": "002",
+    "price": 12.99,
+    "rating": 4.2,
+    "image_url": "https://i.ibb.co/t82cHKw/istockphoto-614518018-1024x1024.jpg",
+    "name": "Dog Toy "
+  },
+  {
+    "id": "003",
+    "price": 7.99,
+    "rating": 4.0,
+    "image_url": "https://i.ibb.co/ys2XZyX/istockphoto-519526504-1024x1024.jpg",
+    "name": "Horse Toy"
+  },
+  {
+    "id": "004",
+    "price": 14.99,
+    "rating": 4.7,
+    "image_url": "https://i.ibb.co/6wBwPkn/istockphoto-1307750599-1024x1024.jpg",
+    "name": " Puppy Soft Toy"
+  },
+  {
+    "id": "005",
+    "price": 6.49,
+    "rating": 3.8,
+    "image_url": "https://i.ibb.co/fFLrtvH/istockphoto-1068828160-1024x1024.jpg",
+    "name": "Unicorn Duck"
+  },
+  {
+    "id": "006",
+    "price": 10.99,
+    "rating": 4.4,
+    "image_url": "https://i.ibb.co/0q2n2Gh/istockphoto-1206305803-1024x1024.jpg",
+    "name": "Horse Toy"
+  }
+]

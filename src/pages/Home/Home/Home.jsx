@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import Gallery from "../Gallery/Gallery";
 
 const Home = () => {
   return (
@@ -64,6 +65,7 @@ const Home = () => {
     // </div>
     <>
       <Banner></Banner>
+      <Gallery></Gallery>
     </>
   );
 };

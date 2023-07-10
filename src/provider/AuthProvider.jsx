@@ -8,7 +8,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  // updateProfile,
+  updateProfile,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 
@@ -38,31 +38,17 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
-  // const userProfileUpdate = () => {
-  //   setLoading(true);
-  //   return updateProfile(auth.currentUser);
-  // };
-
-  //
-
-  //   import { getAuth, updateProfile } from "firebase/auth";
-  // const auth = getAuth();
-  // updateProfile(auth.currentUser, {
-  //   displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
-  // }).then(() => {
-  //   // Profile updated!
-  //   // ...
-  // }).catch((error) => {
-  //   // An error occurred
-  //   // ...
-  // });
-  //
 
   // const githubLogin = () => {
   //   setLoading(true);
   //   return signInWithPopup(auth, githubProvider);
   // };
-
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
+  };
   useEffect(() => {
     const unsubsCribe = onAuthStateChanged(auth, (loggedUser) => {
       setUser(loggedUser);
@@ -72,12 +58,13 @@ const AuthProvider = ({ children }) => {
       return unsubsCribe();
     };
   }, []); // add new this
+
   const authInfo = {
     createUser,
     login,
     logOut,
     googleLogin,
-    // userProfileUpdate,
+    updateUserProfile,
     // githubLogin,
     user,
     loading,

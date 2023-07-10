@@ -13,7 +13,7 @@ import SocialLoginButton from "../Shared/SocialLogin/SocialLoginButton";
 
 const Signup = () => {
   const [error, setError] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -21,8 +21,8 @@ const Signup = () => {
     const email = form.email.value;
     const password = form.password.value;
     const name = form.name.value;
-    const photo = form.photo.value;
-    console.log(email, password, name, photo);
+    const photoURL = form.photoURL.value;
+    console.log(email, password, name, photoURL);
     if (!/^.{6,}$/.test(password)) {
       setError("password length will be minimum 6 character");
       return;
@@ -30,7 +30,10 @@ const Signup = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
+
         console.log(user);
+
+        updateUserProfile(form.name, form.photoURL);
       })
       .catch((error) => {
         const message = error.message;
@@ -67,7 +70,7 @@ const Signup = () => {
                 <span className="label-text">Email</span>
               </label>
               <input
-                type="text"
+                type="email"
                 placeholder="email"
                 name="email"
                 required
@@ -79,7 +82,7 @@ const Signup = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
                 placeholder="password"
                 name="password"
                 required
@@ -92,8 +95,8 @@ const Signup = () => {
               </label>
               <input
                 type="text"
-                placeholder="photo-url"
-                name="photo"
+                placeholder="photoURL"
+                name="photoURL"
                 required
                 className="input input-bordered"
               />

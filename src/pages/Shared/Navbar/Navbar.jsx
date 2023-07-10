@@ -29,7 +29,7 @@ const Navbar = () => {
   //   });
 
   return (
-    <div className="navbar bg-rose-100 flex-col md:flex-row bold">
+    <div className="navbar bg-rose-50 flex-col md:flex-row bold">
       <div className="">
         <a className="btn btn-ghost normal-case text-xl">
           <img
@@ -45,7 +45,7 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-orange-500 btn btn-ghost normal-case text-xl"
+              ? "text-orange-400 btn btn-ghost normal-case text-xl"
               : "btn btn-ghost normal-case text-xl"
           }
         >
@@ -55,16 +55,19 @@ const Navbar = () => {
           to="/blog"
           className={({ isActive }) =>
             isActive
-              ? "text-orange-500 btn btn-ghost normal-case text-xl"
+              ? "text-orange-400 btn btn-ghost normal-case text-xl"
               : "btn btn-ghost normal-case text-xl"
           }
         >
           Blog
         </NavLink>
         {user ? (
-          <button className="text-xl font-semibold" onClick={handleLogOut}>
-            logOut
-          </button>
+          <>
+            <span>{user?.displayName}</span>
+            <button className="text-xl font-semibold" onClick={handleLogOut}>
+              logOut
+            </button>
+          </>
         ) : (
           <button className="text-xl font-semibold">
             <Link to="/login">login</Link>
