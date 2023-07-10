@@ -63,6 +63,16 @@ const Navbar = () => {
         </NavLink>
         {user ? (
           <>
+            <NavLink
+              to="/add-toy"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-orange-400 btn btn-ghost normal-case text-xl"
+                  : "btn btn-ghost normal-case text-xl"
+              }
+            >
+              Add-A-Toy
+            </NavLink>
             <span>{user?.displayName}</span>
             <button className="text-xl font-semibold" onClick={handleLogOut}>
               logOut

@@ -6,6 +6,10 @@ import LoginLayout from "../layout/LoginLayout";
 import Login from "../pages/Login/Login";
 import SignupLayout from "../layout/SignupLayout";
 import Signup from "../pages/Signup/Signup";
+import AddToyLayout from "../layout/AddToyLayout";
+import AddAToy from "../pages/AddAToy/AddAToy";
+import BlogLayout from "../layout/BlogLayout";
+import Blog from "../pages/Blog/Blog";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +40,26 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup></Signup>,
+      },
+    ],
+  },
+  {
+    path: "/add-toy",
+    element: <AddToyLayout></AddToyLayout>,
+    children: [
+      {
+        path: "/add-toy",
+        element: <AddAToy></AddAToy>,
+      },
+    ],
+  },
+  {
+    path: "/blog",
+    element: <BlogLayout></BlogLayout>,
+    children: [
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
       },
     ],
   },
