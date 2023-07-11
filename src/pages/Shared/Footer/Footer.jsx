@@ -24,6 +24,7 @@ const Footer = () => {
           <a className="link link-hover">Press kit</a>
         </div>
         <div className="md:place-self-center md:justify-self-end">
+          <h1 className="footer-title">Social Links</h1>
           <div className="grid grid-flow-col gap-4">
             <a>
               <svg

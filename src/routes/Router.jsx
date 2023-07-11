@@ -10,6 +10,7 @@ import AddToyLayout from "../layout/AddToyLayout";
 import AddAToy from "../pages/AddAToy/AddAToy";
 import BlogLayout from "../layout/BlogLayout";
 import Blog from "../pages/Blog/Blog";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -45,7 +46,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/add-toy",
-    element: <AddToyLayout></AddToyLayout>,
+    element: (
+      <PrivateRoutes>
+        <AddToyLayout></AddToyLayout>
+      </PrivateRoutes>
+    ),
     children: [
       {
         path: "/add-toy",

@@ -9,7 +9,20 @@ const AddAToy = () => {
     // watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    fetch("http://localhost:3000/addToy", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+    console.log(data);
+  };
   return (
     <div className="sm:h-full md:h-96 bg-rose-100 py-10 w-full mx-auto">
       <form
@@ -18,7 +31,7 @@ const AddAToy = () => {
       >
         <input
           className="m-5 h-8 rounded"
-          {...register("Toy-Name", { required: true })}
+          {...register("toyName", { required: true })}
           placeholder="Toy-Name"
           type="text"
         />
@@ -33,7 +46,7 @@ const AddAToy = () => {
         <input
           className="m-5 h-8 rounded"
           value={user?.name}
-          {...register("Seller-Name", { required: true })}
+          {...register("sellerName", { required: true })}
           placeholder="Seller-Name"
           type="text"
         />
@@ -57,7 +70,7 @@ const AddAToy = () => {
         />
         <input
           className="m-5 h-8 rounded"
-          {...register("Rating", { required: true })}
+          {...register("rating", { required: true })}
           placeholder="Rating"
           type="text"
         />
@@ -76,12 +89,12 @@ const AddAToy = () => {
 
         {errors.exampleRequired && <span>This field is required</span>}
 
-        <div className="flex h-10 w-64 mx-auto  ">
-          <input
-            className="mt-5 md:ml-[350px] btn btn-primary w-64"
-            type="submit"
-          />
-        </div>
+        {/* <div className="flex h-10 w-64 mx-auto  ">
+        </div> */}
+        <input
+          className="mt-5 md:ml-[350px] btn btn-primary w-64"
+          type="submit"
+        />
       </form>
     </div>
   );

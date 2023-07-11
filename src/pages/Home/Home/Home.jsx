@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
+import Toys from "../Toys/Toys";
 
 const Home = () => {
   return (
@@ -66,6 +67,7 @@ const Home = () => {
     <>
       <Banner></Banner>
       <Gallery></Gallery>
+      <Toys></Toys>
     </>
   );
 };
