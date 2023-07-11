@@ -76,7 +76,12 @@ const AddAToy = () => {
 
         {errors.exampleRequired && <span>This field is required</span>}
 
-        <input className="m-5 btn btn-primary " type="submit" />
+        <div className="flex h-10 w-64 mx-auto  ">
+          <input
+            className="mt-5 md:ml-[350px] btn btn-primary w-64"
+            type="submit"
+          />
+        </div>
       </form>
     </div>
   );
