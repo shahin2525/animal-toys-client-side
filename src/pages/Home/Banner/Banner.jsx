@@ -1,6 +1,7 @@
 // import { Rating } from "@smastrom/react-rating";
 
 // import "@smastrom/react-rating/style.css";
+import { FaArrowRight } from "react-icons/fa";
 
 const Banner = () => {
   return (
@@ -21,7 +22,9 @@ const Banner = () => {
         </ul>
 
         <div className="mt-20 font-bold text-3xl">
-          <button className="btn bg-orange-400">Shop Now</button>
+          <button className="btn bg-orange-400">
+            Shop Now <FaArrowRight />
+          </button>
           {/* grid grid-cols-1 md:grid-cols-2<Rating style={{ maxWidth: 180 }} value={5} readOnly /> */}
         </div>
       </div>

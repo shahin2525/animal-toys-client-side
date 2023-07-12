@@ -43,10 +43,10 @@ const AuthProvider = ({ children }) => {
   //   setLoading(true);
   //   return signInWithPopup(auth, githubProvider);
   // };
-  const updateUserProfile = (name, photo) => {
-    return updateProfile(auth.currentUser, {
+  const updateUserProfile = (user, name, photoURL) => {
+    return updateProfile(user, {
       displayName: name,
-      photoURL: photo,
+      photoURL: photoURL,
     });
   };
   useEffect(() => {

@@ -1,8 +1,8 @@
 import "@smastrom/react-rating/style.css";
 import { Rating } from "@smastrom/react-rating";
-const Toy = ({ toy }) => {
-  // console.log(toy);
-  const { imageUrl, toyName, Price, rating } = toy;
+const Horse = ({ horse }) => {
+  //   console.log(horse);
+  const { imageUrl, toyName, Price, rating } = horse;
   return (
     <div className="card w-[340px] bg-base-100 shadow-xl">
       <figure>
@@ -24,4 +24,4 @@ const Toy = ({ toy }) => {
   );
 };
 
-export default Toy;
+export default Horse;

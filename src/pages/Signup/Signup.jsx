@@ -33,7 +33,7 @@ const Signup = () => {
 
         console.log(user);
 
-        updateUserProfile(form.name, form.photoURL);
+        updateUserProfile(result.user, name, photoURL);
       })
       .catch((error) => {
         const message = error.message;

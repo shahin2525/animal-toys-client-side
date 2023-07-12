@@ -1,6 +1,6 @@
 import Banner from "../Banner/Banner";
 import Gallery from "../Gallery/Gallery";
-import Toys from "../Toys/Toys";
+import ShopCategoryTabs from "../ShopCategory/ShopCategoryTabs";
 
 const Home = () => {
   return (
@@ -67,7 +67,7 @@ const Home = () => {
     <>
       <Banner></Banner>
       <Gallery></Gallery>
-      <Toys></Toys>
+      <ShopCategoryTabs></ShopCategoryTabs>
     </>
   );
 };
