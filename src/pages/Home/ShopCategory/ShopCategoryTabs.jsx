@@ -31,7 +31,7 @@ const ShopCategoryTabs = () => {
       </h1>
 
       <Tabs>
-        <TabList className="flex justify-center items-center mt-10">
+        <TabList className="flex justify-center items-center mt-10 mb-4">
           <Tab className="font-semibold mr-4 py-2 px-4 ">Bear</Tab>
           <Tab className="font-semibold mr-4 py-2 px-4">Horse</Tab>
           <Tab className="font-semibold py-2 px-4">Dogs</Tab>

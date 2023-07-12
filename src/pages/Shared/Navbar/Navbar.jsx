@@ -73,7 +73,7 @@ const Navbar = () => {
             >
               Add-A-Toy
             </NavLink>
-            <span>{user?.displayName}</span>
+            {/* <span>{user?.displayName}</span> */}
             <button className="text-xl font-semibold" onClick={handleLogOut}>
               logOut
             </button>
@@ -91,11 +91,11 @@ const Navbar = () => {
         <div className="">
           {user && (
             <div
-              className=" tooltip tooltip-left w-10"
+              className=" tooltip tooltip-left btn btn-ghost btn-circle avatar"
               data-tip={user?.displayName}
             >
               <img
-                className=" group-hover:opacity-75 rounded-full"
+                className=" w-10   rounded-full "
                 src={user?.photoURL}
                 alt=""
               />

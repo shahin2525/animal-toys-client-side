@@ -1,8 +1,21 @@
 import "@smastrom/react-rating/style.css";
 import { Rating } from "@smastrom/react-rating";
+import { useContext } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Bear = ({ bear }) => {
-  console.log(bear);
+  //   console.log(bear);
+  const { user } = useContext(AuthContext);
+
+  const notify = () => {
+    if (!user) return;
+    toast.error("You should log in first ", {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
   const { imageUrl, toyName, Price, rating } = bear;
   return (
     <div className="card w-[340px] bg-base-100 shadow-xl">
@@ -18,7 +31,10 @@ const Bear = ({ bear }) => {
           readOnly
         />
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">View Details</button>
+          <button onClick={notify} className="btn btn-primary">
+            View Details
+          </button>
+          <ToastContainer />
         </div>
       </div>
     </div>
