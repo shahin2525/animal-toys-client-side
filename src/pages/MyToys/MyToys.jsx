@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -12,6 +13,35 @@ const MyToys = () => {
         setToys(data);
       });
   }, [user]);
+
+  const handleDelete = (id) => {
+    // console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/toy/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "milk has been deleted.", "success");
+              const remaining = toys.filter((toy) => toy._id !== id);
+              setToys(remaining);
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div className="overflow-x-auto bg-rose-100 font-semibold py-5 px-2">
       <table className="table table-xs">
@@ -51,73 +81,21 @@ const MyToys = () => {
               <td>{toy?.Quantity}</td>
               <td>{toy?.Description}</td>
               <td>
-                <button>Update</button>
+                <button
+                  className="btn bg-rose-100"
+                  onClick={() => window.my_modal_1.showModal()}
+                >
+                  Update
+                </button>
               </td>
               <td>
-                <button>Delete</button>
+                <button onClick={() => handleDelete(toy?._id)}>Delete</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-
-    // <div className="overflow-x-auto">
-    //   <table className="table">
-    //     {/* head */}
-    //     <thead>
-    //       <tr>
-    //         <th>#</th>
-    //         <th>Toy-image</th>
-    //         <th>Toy-Name</th>
-    //         <th>Seller-Name</th>
-    //         <th>Sub-Category</th>
-    //         <th>Price</th>
-    //         <th>Available-Quantity</th>
-    //         <th>Description</th>
-    //         <th>Update</th>
-    //         <th>Delete</th>
-    //       </tr>
-    //     </thead>
-    //     <tbody>
-
-    //    { toys.map((toy,index) => (<tr>
-    //         <th>
-    //           <label>
-    //             <input type="checkbox" className="checkbox" />
-    //           </label>
-    //         </th>
-    //         <td>
-    //           <div className="flex items-center space-x-3">
-    //             <div className="avatar">
-    //               <div className="mask mask-squircle w-12 h-12">
-    //                 <img
-    //                   src="/tailwind-css-component-profile-2@56w.png"
-    //                   alt="Avatar Tailwind CSS Component"
-    //                 />
-    //               </div>
-    //             </div>
-    //             <div>
-    //               <div className="font-bold">Hart Hagerty</div>
-    //               <div className="text-sm opacity-50">United States</div>
-    //             </div>
-    //           </div>
-    //         </td>
-    //         <td>
-    //           Zemlak, Daniel and Leannon
-    //           <br />
-    //           <span className="badge badge-ghost badge-sm">
-    //             Desktop Support Technician
-    //           </span>
-    //         </td>
-    //         <td>Purple</td>
-    //         <th>
-    //           <button className="btn btn-ghost btn-xs">details</button>
-    //         </th>
-    //       </tr>)   }
-    //     </tbody>
-    //   </table>
-    // </div>
   );
 };
 
