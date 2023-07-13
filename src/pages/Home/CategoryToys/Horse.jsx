@@ -1,7 +1,21 @@
 import "@smastrom/react-rating/style.css";
 import { Rating } from "@smastrom/react-rating";
+import { useContext } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
+import { toast } from "react-toastify";
 const Horse = ({ horse }) => {
   //   console.log(horse);
+  const { user } = useContext(AuthContext);
+
+  const notify = () => {
+    if (!user) {
+      toast.error("You should log in first ", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      return;
+    }
+  };
+
   const { imageUrl, toyName, Price, rating } = horse;
   return (
     <div className="card w-[340px] bg-base-100 shadow-xl">
@@ -17,7 +31,9 @@ const Horse = ({ horse }) => {
           readOnly
         />
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">View Details</button>
+          <button onClick={notify} className="btn btn-primary">
+            View Details
+          </button>
         </div>
       </div>
     </div>

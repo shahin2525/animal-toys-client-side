@@ -47,11 +47,6 @@ const ShopCategoryTabs = () => {
           <DogToys></DogToys>
         </TabPanel>
       </Tabs>
-      {/* <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 py-2 md:ml-4">
-        {toys.map((toy) => (
-          <Toy key={toy._id} toy={toy}></Toy>
-        ))}
-      </div> */}
     </div>
   );
 };

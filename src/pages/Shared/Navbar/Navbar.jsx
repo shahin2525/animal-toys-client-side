@@ -15,19 +15,6 @@ const Navbar = () => {
       });
   };
 
-  // userProfileUpdate({
-  //   displayName: "Jane Q. User",
-  //   photoURL: "https://example.com/jane-q-user/profile.jpg",
-  // })
-  //   .then(() => {
-  //     // Profile updated!
-  //     // ...
-  //   })
-  //   .catch((error) => {
-  //     const message = error.message;
-  //     console.log(message);
-  //   });
-
   return (
     <div className="navbar bg-rose-50 flex-col md:flex-row bold">
       <div className="">
@@ -45,8 +32,8 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "text-orange-400 btn btn-ghost normal-case text-xl"
-              : "btn btn-ghost normal-case text-xl"
+              ? "text-orange-400 btn btn-ghost normal-case text-lg"
+              : "btn btn-ghost normal-case text-lg"
           }
         >
           Home
@@ -55,8 +42,8 @@ const Navbar = () => {
           to="/blog"
           className={({ isActive }) =>
             isActive
-              ? "text-orange-400 btn btn-ghost normal-case text-xl"
-              : "btn btn-ghost normal-case text-xl"
+              ? "text-orange-400 btn btn-ghost normal-case text-lg"
+              : "btn btn-ghost normal-case text-lg"
           }
         >
           Blog
@@ -65,8 +52,8 @@ const Navbar = () => {
           to="/all-toy"
           className={({ isActive }) =>
             isActive
-              ? "text-orange-400 btn btn-ghost normal-case text-xl"
-              : "btn btn-ghost normal-case text-xl"
+              ? "text-orange-400 btn btn-ghost normal-case text-lg"
+              : "btn btn-ghost normal-case text-lg"
           }
         >
           All Toy
@@ -74,11 +61,21 @@ const Navbar = () => {
         {user ? (
           <>
             <NavLink
+              to="/my-toys"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-orange-400 btn btn-ghost normal-case text-lg"
+                  : "btn btn-ghost normal-case text-lg"
+              }
+            >
+              My Toys
+            </NavLink>
+            <NavLink
               to="/add-toy"
               className={({ isActive }) =>
                 isActive
-                  ? "text-orange-400 btn btn-ghost normal-case text-xl"
-                  : "btn btn-ghost normal-case text-xl"
+                  ? "text-orange-400 btn btn-ghost normal-case text-lg"
+                  : "btn btn-ghost normal-case text-lg"
               }
             >
               Add-A-Toy

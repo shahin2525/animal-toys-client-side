@@ -2,7 +2,7 @@ import "@smastrom/react-rating/style.css";
 import { Rating } from "@smastrom/react-rating";
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Bear = ({ bear }) => {
@@ -10,10 +10,12 @@ const Bear = ({ bear }) => {
   const { user } = useContext(AuthContext);
 
   const notify = () => {
-    if (!user) return;
-    toast.error("You should log in first ", {
-      position: toast.POSITION.TOP_CENTER,
-    });
+    if (!user) {
+      toast.error("You should log in first ", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+      return;
+    }
   };
 
   const { imageUrl, toyName, Price, rating } = bear;
@@ -34,7 +36,6 @@ const Bear = ({ bear }) => {
           <button onClick={notify} className="btn btn-primary">
             View Details
           </button>
-          <ToastContainer />
         </div>
       </div>
     </div>
