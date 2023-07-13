@@ -4,7 +4,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
-  //   console.log(toys);
+  console.log(toys);
   useEffect(() => {
     fetch(`http://localhost:3000/myToys/${user?.email}`)
       .then((res) => res.json())
@@ -13,7 +13,7 @@ const MyToys = () => {
       });
   }, [user]);
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto bg-rose-100 font-semibold py-5 px-2">
       <table className="table table-xs">
         <thead>
           <tr>
@@ -21,9 +21,9 @@ const MyToys = () => {
             <th>Toy-image</th>
             <th>Toy-Name</th>
             <th>Seller-Name</th>
-            <th>Sub-Category</th>
+            <th>Category</th>
             <th>Price</th>
-            <th>Available-Quantity</th>
+            <th>Quantity</th>
             <th>Description</th>
             <th>Update</th>
             <th>Delete</th>
@@ -44,12 +44,18 @@ const MyToys = () => {
                   </div>
                 </div>
               </td>
-              <td>{toy.toyName}</td>
-              <td>Quality Control Specialist</td>
-              <td>Littel, Schaden and Vandervort</td>
-              <td>Canada</td>
-              <td>12/16/2020</td>
-              <td>Blue</td>
+              <td>{toy?.toyName}</td>
+              <td>{toy?.sellerName}</td>
+              <td>{toy?.category}</td>
+              <td>{toy?.Price}</td>
+              <td>{toy?.Quantity}</td>
+              <td>{toy?.Description}</td>
+              <td>
+                <button>Update</button>
+              </td>
+              <td>
+                <button>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
