@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 const AllToys = () => {
+  const [searToy, setSearchToy] = useState("");
   const [toys, setToys] = useState([]);
   console.log(toys);
   useEffect(() => {
@@ -10,15 +11,30 @@ const AllToys = () => {
         setToys(data);
       });
   }, []);
+
+  const handleSearch = () => {
+    fetch(`http://localhost:3000/toySearchByName/${searToy}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setToys(data);
+      });
+  };
+
   return (
     <div className="overflow-x-auto bg-rose-100 font-semibold py-5 px-2">
       <div className=" flex justify-center items-center my-4">
         <input
-          className="mr-3 rounded px-2 py-1"
+          className="mr-3 rounded px-2 py-1 bold text-black"
           type="text"
-          placeholder="Search"
+          placeholder="Enter-Toy-Name"
+          onChange={(e) => setSearchToy(e.target.value)}
         />
-        <button className="bg-orange-400 px-2 py-1 rounded ">Search</button>
+        <button
+          onClick={handleSearch}
+          className="bg-orange-400 px-2 py-1 rounded "
+        >
+          Search
+        </button>
       </div>
       <table className="table table-xs">
         <thead>
