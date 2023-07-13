@@ -61,6 +61,16 @@ const Navbar = () => {
         >
           Blog
         </NavLink>
+        <NavLink
+          to="/all-toy"
+          className={({ isActive }) =>
+            isActive
+              ? "text-orange-400 btn btn-ghost normal-case text-xl"
+              : "btn btn-ghost normal-case text-xl"
+          }
+        >
+          All Toy
+        </NavLink>
         {user ? (
           <>
             <NavLink
