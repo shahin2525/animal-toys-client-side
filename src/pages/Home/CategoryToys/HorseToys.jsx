@@ -4,7 +4,7 @@ import Horse from "./Horse";
 const HorseToys = () => {
   const [horses, setHorses] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/allToys/Horse")
+    fetch("https://animal-toys-2.vercel.app/allToys/Horse")
       .then((res) => res.json())
       .then((data) => {
         setHorses(data);

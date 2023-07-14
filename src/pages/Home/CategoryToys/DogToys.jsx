@@ -4,7 +4,7 @@ import Dog from "./Dog";
 const DogToys = () => {
   const [dogs, setDogs] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/allToys/Dogs")
+    fetch("https://animal-toys-2.vercel.app/allToys/Dogs")
       .then((res) => res.json())
       .then((data) => {
         setDogs(data);

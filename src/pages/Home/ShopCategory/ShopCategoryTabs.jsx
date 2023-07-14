@@ -12,7 +12,7 @@ const ShopCategoryTabs = () => {
   // console.log(toys);
   // const [activeTab, setActiveTab] = useState(0);
   // useEffect(() => {
-  //   fetch(`http://localhost:3000/allToys/${activeTab}`)
+  //   fetch(`https://animal-toys-2.vercel.app/allToys/${activeTab}`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setToys(data);

@@ -110,7 +110,8 @@ const router = createBrowserRouter([
       {
         path: ":id",
         element: <Update></Update>,
-        loader: ({ params }) => fetch(`http://localhost:3000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://animal-toys-2.vercel.app/toy/${params.id}`),
       },
     ],
   },
@@ -125,7 +126,8 @@ const router = createBrowserRouter([
             <ViewDetail></ViewDetail>
           </PrivateRoutes>
         ),
-        loader: ({ params }) => fetch(`http://localhost:3000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(`https://animal-toys-2.vercel.app/toy/${params.id}`),
       },
     ],
   },
