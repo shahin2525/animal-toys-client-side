@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -81,12 +82,9 @@ const MyToys = () => {
               <td>{toy?.Quantity}</td>
               <td>{toy?.Description}</td>
               <td>
-                <button
-                  className="btn bg-rose-100"
-                  onClick={() => window.my_modal_1.showModal()}
-                >
-                  Update
-                </button>
+                <Link to={`/update-toy/:${toy?._id}`}>
+                  <button>Update</button>
+                </Link>
               </td>
               <td>
                 <button onClick={() => handleDelete(toy?._id)}>Delete</button>

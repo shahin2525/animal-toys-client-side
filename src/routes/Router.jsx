@@ -15,6 +15,9 @@ import AllToyLayout from "../layout/AllToyLayout";
 import AllToys from "../pages/AllToys/AllToys";
 import MyToyLayout from "../layout/MyToyLayout";
 import MyToys from "../pages/MyToys/MyToys";
+// import UpdateLayout from "../layout/UpdateLayout";
+import Update from "../pages/Update/Update";
+import UpdateLayout from "../layout/UpdateLayout";
 
 const router = createBrowserRouter([
   {
@@ -97,5 +100,26 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/update-toy/:id",
+    element: <UpdateLayout></UpdateLayout>,
+    children: [
+      {
+        path: "/update-toy/:id",
+        element: <Update></Update>,
+      },
+    ],
+  },
+  // {
+  //   path: "/update-toy/:id",
+  //   element: <UpdateLayout></UpdateLayout>,
+  //   children: [
+  //     {
+  //       path: "/update-toy/:id",
+  //       element: <Update></Update>,
+  //       // loader: ({ params }) => fetch(`http://localhost:3000/toy/${params.id}`),
+  //     },
+  //   ],
+  // },
 ]);
 export default router;

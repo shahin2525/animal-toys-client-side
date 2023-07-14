@@ -1,15 +1,75 @@
+// import { useLoaderData } from "react-router-dom";
+// import { useContext } from "react";
+import { useForm } from "react-hook-form";
+// import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
+
 const Update = () => {
+  const {
+    register,
+    handleSubmit,
+    // watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    fetch("http://localhost:3000/toy", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "success!",
+            text: "Toy successfully updated",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      });
+    console.log(data);
+  };
+
   return (
-    <dialog id="my_modal_1" className="modal">
-      <form method="dialog" className="modal-box">
-        <h3 className="font-bold text-lg">Hello!</h3>
-        <p className="py-4">Press ESC key or click the button below to close</p>
-        <div className="modal-action">
-          {/* if there is a button in form, it will close the modal */}
-          <button className="btn">Close</button>
-        </div>
+    <div className="sm:h-full md:h-96 bg-rose-100 py-10 w-full mx-auto">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="grid sm:grid-cols-1 md:grid-cols-3"
+      >
+        <input
+          className="m-5 h-8 rounded"
+          {...register("Price", { required: true })}
+          placeholder="Price"
+          type="text"
+        />
+
+        <input
+          className="m-5 h-8 rounded"
+          {...register("Quantity", { required: true })}
+          placeholder="Quantity"
+          type="text"
+        />
+        <input
+          className="m-5 h-8 rounded"
+          {...register("Description", { required: true })}
+          placeholder="Description"
+          type="text"
+        />
+
+        {errors.exampleRequired && <span>This field is required</span>}
+
+        {/* <div className="flex h-10 w-64 mx-auto  ">
+        </div> */}
+        <input
+          className="mt-5 sm:ml-10 sm:pl-10 md:ml-[350px] btn btn-primary w-64"
+          type="submit"
+        />
       </form>
-    </dialog>
+    </div>
   );
 };
 

@@ -56,7 +56,7 @@ const Navbar = () => {
               : "btn btn-ghost normal-case text-lg"
           }
         >
-          All Toy
+          All-Toy
         </NavLink>
         {user ? (
           <>
@@ -68,7 +68,7 @@ const Navbar = () => {
                   : "btn btn-ghost normal-case text-lg"
               }
             >
-              My Toys
+              My-Toys
             </NavLink>
             <NavLink
               to="/add-toy"
