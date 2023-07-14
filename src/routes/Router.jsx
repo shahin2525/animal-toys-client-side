@@ -18,6 +18,8 @@ import MyToys from "../pages/MyToys/MyToys";
 // import UpdateLayout from "../layout/UpdateLayout";
 import Update from "../pages/Update/Update";
 import UpdateLayout from "../layout/UpdateLayout";
+import DetailLayout from "../layout/DetailLayout";
+import ViewDetail from "../pages/ViewDetail/ViewDetail";
 
 const router = createBrowserRouter([
   {
@@ -100,26 +102,32 @@ const router = createBrowserRouter([
       },
     ],
   },
+
   {
-    path: "/update-toy/:id",
+    path: "/update",
     element: <UpdateLayout></UpdateLayout>,
     children: [
       {
-        path: "/update-toy/:id",
+        path: ":id",
         element: <Update></Update>,
+        loader: ({ params }) => fetch(`http://localhost:3000/toy/${params.id}`),
       },
     ],
   },
-  // {
-  //   path: "/update-toy/:id",
-  //   element: <UpdateLayout></UpdateLayout>,
-  //   children: [
-  //     {
-  //       path: "/update-toy/:id",
-  //       element: <Update></Update>,
-  //       // loader: ({ params }) => fetch(`http://localhost:3000/toy/${params.id}`),
-  //     },
-  //   ],
-  // },
+  {
+    path: "/detail",
+    element: <DetailLayout></DetailLayout>,
+    children: [
+      {
+        path: ":id",
+        element: (
+          <PrivateRoutes>
+            <ViewDetail></ViewDetail>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:3000/toy/${params.id}`),
+      },
+    ],
+  },
 ]);
 export default router;

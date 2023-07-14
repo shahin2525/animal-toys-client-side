@@ -1,10 +1,13 @@
 // import { useLoaderData } from "react-router-dom";
 // import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { useLoaderData } from "react-router-dom";
 // import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Update = () => {
+  const updateData = useLoaderData();
+  console.log(updateData);
   const {
     register,
     handleSubmit,
@@ -12,7 +15,7 @@ const Update = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch("http://localhost:3000/toy", {
+    fetch(`http://localhost:3000/toy/${updateData._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +25,7 @@ const Update = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount) {
           Swal.fire({
             title: "success!",
             text: "Toy successfully updated",
@@ -35,7 +38,7 @@ const Update = () => {
   };
 
   return (
-    <div className="sm:h-full md:h-96 bg-rose-100 py-10 w-full mx-auto">
+    <div className="sm:h-full md:h-52 bg-rose-100 py-10 w-full mx-auto">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="grid sm:grid-cols-1 md:grid-cols-3"
@@ -67,6 +70,7 @@ const Update = () => {
         <input
           className="mt-5 sm:ml-10 sm:pl-10 md:ml-[350px] btn btn-primary w-64"
           type="submit"
+          value="Update"
         />
       </form>
     </div>

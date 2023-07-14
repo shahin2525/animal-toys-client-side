@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const AllToys = () => {
   const [searToy, setSearchToy] = useState("");
@@ -62,7 +63,10 @@ const AllToys = () => {
               <td>{toy?.Quantity}</td>
 
               <td>
-                <button>View Details</button>
+                <Link to={`/detail/${toy._id}`}>
+                  {" "}
+                  <button>View Details</button>
+                </Link>
               </td>
             </tr>
           ))}

@@ -82,7 +82,7 @@ const MyToys = () => {
               <td>{toy?.Quantity}</td>
               <td>{toy?.Description}</td>
               <td>
-                <Link to={`/update-toy/:${toy?._id}`}>
+                <Link to={`/update/${toy?._id}`}>
                   <button>Update</button>
                 </Link>
               </td>

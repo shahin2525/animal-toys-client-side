@@ -103,6 +103,7 @@ const AddAToy = () => {
         <input
           className="mt-5 md:ml-[350px] btn btn-primary w-64"
           type="submit"
+          value="Add-Toy"
         />
       </form>
     </div>
