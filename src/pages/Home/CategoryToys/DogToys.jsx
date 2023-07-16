@@ -11,7 +11,7 @@ const DogToys = () => {
       });
   }, []);
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 py-2 mx-4 sm:pl-1 ">
+    <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-2 py-2 mx-4 sm:pl-1 md:pl-10">
       {dogs.map((dog) => (
         <Dog key={dog._id} dog={dog}></Dog>
       ))}

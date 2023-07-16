@@ -7,7 +7,7 @@ const GalleryCard = ({ card }) => {
   const { name, price, rating, image_url } = card;
   return (
     <div>
-      <div className="card w-72 h-[480px] bg-base-100 shadow-xl ">
+      <div className="card sm:w-80 mx-2  md:w-96 h-[480px] bg-base-100 shadow-xl ">
         <figure className="px-10 pt-10">
           <img src={image_url} alt="Shoes" className="rounded-xl" />
         </figure>

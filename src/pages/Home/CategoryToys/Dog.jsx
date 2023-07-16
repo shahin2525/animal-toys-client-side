@@ -18,7 +18,7 @@ const Dog = ({ dog }) => {
 
   const { imageUrl, toyName, Price, rating } = dog;
   return (
-    <div className="card w-[340px] bg-base-100 shadow-xl">
+    <div className="card w-80 bg-base-100 shadow-xl">
       <figure>
         <img src={imageUrl} alt="Shoes" />
       </figure>
