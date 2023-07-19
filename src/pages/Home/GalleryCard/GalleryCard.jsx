@@ -4,12 +4,13 @@ import "@smastrom/react-rating/style.css";
 
 const GalleryCard = ({ card }) => {
   // console.log(card);
-  const { name, price, rating, image_url } = card;
+  const { name, price, rating, imageUrl } = card;
+  console.log(card);
   return (
     <div>
       <div className="card sm:w-80 mx-2  md:w-96 h-[480px] bg-base-100 shadow-xl ">
         <figure className="px-10 pt-10">
-          <img src={image_url} alt="Shoes" className="rounded-xl" />
+          <img src={imageUrl} alt="Shoes" className="rounded-xl" />
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{name}</h2>

@@ -5,7 +5,7 @@ const Gallery = () => {
   const [cards, setCard] = useState([]);
 
   useEffect(() => {
-    fetch("gallery.json")
+    fetch("https://animal-toys-2.vercel.app/allToys")
       .then((res) => res.json())
       .then((data) => setCard(data));
   }, []);
